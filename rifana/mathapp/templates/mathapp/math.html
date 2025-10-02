@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Calculator (P=I²R)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center; 
+      align-items: center;    
+      font-family: Arial, sans-serif;
+      background-color: rgb(211, 10, 164);
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #0f37a5aa;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    input {
+      padding: 5px;
+      margin: 6px 0;
+      width: 110px;
+      font-size: medium;
+    }
+    button {
+      padding: 8px 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-style: italic;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Power Calculator (P = I² × R)</h1>
+
+    <div>
+      <label>Current (I in A): </label>
+      <input type="number" id="current" step="any"><br>
+
+      <label>Resistance (R in Ω): </label>
+      <input type="number" id="resistance" step="any"><br>
+
+      <button onclick="calculatePower()">Calculate</button>
+    </div>
+
+    <h2 id="result">Power will appear here</h2>
+  </div>
+
+  <script>
+    function calculatePower() {
+      let I = parseFloat(document.getElementById("current").value);
+      let R = parseFloat(document.getElementById("resistance").value);
+
+      if (!isNaN(I) && !isNaN(R)) {
+        let P = I * I * R;
+        document.getElementById("result").innerText = "Power = " + P + " Watts";
+      } else {
+        document.getElementById("result").innerText = "Please enter both values!";
+      }
+    }
+  </script>
+
+
+</body>
+</html>
